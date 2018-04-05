@@ -38,11 +38,21 @@ public class HandPoker extends Hand {
 	}
 
 	public boolean isRoyalFlush() {
-		return isStraightFlush() && super.getCards().get(0).geteRank() == eRank.ACE && super.getCards().get(1).geteRank() == eRank.KING);
+		boolean bisStright = false
+		if (isStraightFlush() && super.getCards().get(0).geteRank() == eRank.ACE && super.getCards().get(1).geteRank() == eRank.KING){
+			bisRoyalFlush = true;
+			HSP.setHandStrength(eHandStrength.RoyalFlush)
+		}
+		return bisRoyalFlush
 	}
 
 	public boolean isStraightFlush() {
-		return isStraight() && isFlush();
+		boolean bisStraightFlush = false;
+		if (isFlush() && isStraight()){
+			bishStraightFlush = true;
+			HSP.setHandStrength(eHandStrength.StraightFlush);
+		}
+		return bisStrightFlush;
 	}
 	
 	public boolean isFourOfAKind() {
