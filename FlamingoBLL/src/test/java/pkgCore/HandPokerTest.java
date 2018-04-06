@@ -18,6 +18,11 @@ public class HandPokerTest {
 		hp.ScoreHand();
 		System.out.println("");
 		assertEquals(hp.isFourOfAKind(),true);
+		assertEquals(HSP.geteHandStrength(),eHandStrength.FourOfAKind);
+		assertEquals(HSP.getHiCard().geteRank(), eRank.TWO);
+		assertEquals(HSP.getKickers().siz(), 1);
+		assertEquals(HSP.getKickers().get(0).geteRanks(), eRank.THREE);
+		assertEquals(HSP.getKickers().get(0).geteSuit(), eSuit.CLUBS);
 	}
 	
 	@Test
@@ -33,6 +38,11 @@ public class HandPokerTest {
 		hp.ScoreHand();
 		System.out.println("");
 		assertEquals(hp.isFourOfAKind(),true);
+		assertEquals(HSP.geteHandStrength(),eHandStrength.FourOfAKind);
+		assertEquals(HSP.getHiCard().geteRank(), eRank.KING);
+		assertEquals(HSP.getKickers().siz(), 1);
+		assertEquals(HSP.getKickers().get(0).geteRanks(), eRank.THREE);
+		assertEquals(HSP.getKickers().get(0).geteSuit(), eSuit.CLUBS);
 	}
 	
 	@Test
@@ -165,6 +175,21 @@ public class HandPokerTest {
 		hp.AddCard(new Card(eSuit.DIAMONDS,eRank.THREE));
 		hp.AddCard(new Card(eSuit.HEARTS,eRank.FOUR));
 		hp.AddCard(new Card(eSuit.DIAMONDS,eRank.FIVE));
+		hp.ScoreHand();
+		System.out.println("");
+		assertEquals(hp.isStraight(),true);
+	}
+	
+	@Test
+	public void StraightTest3() {
+		System.out.println("Straight");
+		System.out.println("");
+		HandPoker hp = new HandPoker();
+		hp.AddCard(new Card(eSuit.DIAMONDS,eRank.TEN));
+		hp.AddCard(new Card(eSuit.SPADES,eRank.JACK));
+		hp.AddCard(new Card(eSuit.DIAMONDS,eRank.QUEEN));
+		hp.AddCard(new Card(eSuit.HEARTS,eRank.KING));
+		hp.AddCard(new Card(eSuit.DIAMONDS,eRank.ACE));
 		hp.ScoreHand();
 		System.out.println("");
 		assertEquals(hp.isStraight(),true);
